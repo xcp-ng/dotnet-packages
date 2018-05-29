@@ -184,7 +184,7 @@ ${MSBUILDEXE} /ver
 
 echo "INFO: Performing main build tasks..."
 
-MSBUILD="${MSBUILDEXE} /nologo /m /verbosity:minimal /p:Configuration=Release"
+MSBUILD="${MSBUILDEXE} /nologo /m /verbosity:minimal /p:Configuration=Release /property:SignAssembly=false"
 FRAME45="/p:TargetFrameworkVersion=v4.5"
 FRAME46="/p:TargetFrameworkVersion=v4.6"
 VS2013="/toolsversion:12.0"

@@ -189,7 +189,7 @@ FRAME45="/p:TargetFrameworkVersion=v4.5"
 FRAME46="/p:TargetFrameworkVersion=v4.6"
 VS2013="/toolsversion:12.0"
 VS2015="/toolsversion:14.0"
-VS2013_CPP="/property:PlatformToolset=v120"
+VS2013_CPP="/property:PlatformToolset=v140"
 
 cd ${SCRATCH_DIR}/xml-rpc.net/src && ${MSBUILD} ${FRAME46} ${VS2013}
 cd ${SCRATCH_DIR}/xml-rpc_v45.net/src && ${MSBUILD} ${FRAME45} ${VS2013}

@@ -187,8 +187,8 @@ echo "INFO: Performing main build tasks..."
 MSBUILD="${MSBUILDEXE} /nologo /m /verbosity:minimal /p:Configuration=Release /property:SignAssembly=false"
 FRAME45="/p:TargetFrameworkVersion=v4.5"
 FRAME46="/p:TargetFrameworkVersion=v4.6"
-VS2013="/toolsversion:12.0"
-VS2015="/toolsversion:14.0"
+VS2013="/toolsversion:15.0"
+VS2015="/toolsversion:15.0"
 VS2013_CPP="/property:PlatformToolset=v140"
 
 cd ${SCRATCH_DIR}/xml-rpc.net/src && ${MSBUILD} ${FRAME46} ${VS2013}

@@ -57,15 +57,13 @@ LOG4NET_DIST_FILE="libraries-src/Log4Net/log4net-1.2.13-src.zip"
 SHARP_ZIP_LIB_DIST_FILE="libraries-src/SharpZipLib/SharpZipLib_0854_SourceSamples.zip"
 DISCUTILS_DIST_FILE="libraries-src/DiscUtils/DiscUtils-204669b416f9.zip"
 DOT_NET_ZIP_FILE="libraries-src/DotNetZip/DotNetZip-src-v1.9.1.8.zip"
-PUTTY_ZIP_FILE="libraries-src/PuTTY/putty-src.zip"
 
 DISTFILES=(${REPO}/${XML_RPC_DIST_FILE} \
            ${REPO}/${JSON_NET_ZIP_FILE} \
            ${REPO}/${LOG4NET_DIST_FILE} \
            ${REPO}/${SHARP_ZIP_LIB_DIST_FILE} \
            ${REPO}/${DISCUTILS_DIST_FILE} \
-           ${REPO}/${DOT_NET_ZIP_FILE} \
-           ${REPO}/${PUTTY_ZIP_FILE})
+           ${REPO}/${DOT_NET_ZIP_FILE} 
 
 mkdir_clean()
 {
@@ -170,12 +168,6 @@ mv ${DISCUTILS_SRC_DIR}/DiscUtils_204669b416f9/* ${DISCUTILS_SRC_DIR}
 cp ${PATCHES}/patch-discutils* ${OUTPUT_SRC_DIR}
 apply_patches "${PATCHES}/patch-discutils*" ${DISCUTILS_SRC_DIR}
 
-#prepare PuTTY
-
-PUTTY_SRC_DIR=${SCRATCH_DIR}/PuTTY
-mkdir_clean ${PUTTY_SRC_DIR}
-unzip -q -d ${PUTTY_SRC_DIR} ${SCRATCH_DIR}/putty-src.zip
-cp ${PUTTY_SRC_DIR}/version.h ${PUTTY_SRC_DIR}/licence.h ${PUTTY_SRC_DIR}/windows/
 
 MSBUILDEXE=MSBuild.exe
 
@@ -199,7 +191,6 @@ cd ${SCRATCH_DIR}/log4net/src && ${MSBUILD} ${FRAME46} ${VS2013} log4net.vs2010.
 cd ${SCRATCH_DIR}/sharpziplib/src && ${MSBUILD} ${FRAME46} ${VS2013}
 cd ${SCRATCH_DIR}/dotnetzip/DotNetZip-src/DotNetZip/Zip && ${MSBUILD} ${FRAME46} ${VS2013}
 cd ${SCRATCH_DIR}/DiscUtils/src && ${MSBUILD} ${FRAME46} ${VS2013}
-cd ${SCRATCH_DIR}/PuTTY/windows/VS2010 && ${MSBUILD} ${VS2013_CPP}
 
 #collect files in the output directory
 
@@ -210,7 +201,6 @@ cp ${SCRATCH_DIR}/xml-rpc.net/bin/CookComputing.XmlRpcV2.{dll,pdb} \
    ${SCRATCH_DIR}/sharpziplib/bin/ICSharpCode.SharpZipLib.{dll,pdb} \
    ${SCRATCH_DIR}/dotnetzip/DotNetZip-src/DotNetZip/Zip/bin/Release/Ionic.Zip.{dll,pdb} \
    ${SCRATCH_DIR}/DiscUtils/src/bin/Release/DiscUtils.{dll,pdb} \
-   ${SCRATCH_DIR}/PuTTY/windows/VS2010/putty/Release/putty.exe \
    ${OUTPUT_46_DIR}
 cp ${REPO}/${XML_RPC_LICENSE}  ${OUTPUT_46_DIR}/LICENSE.CookComputing.XmlRpcV2.txt
 cp ${REPO}/${JSON_NET_LICENSE} ${OUTPUT_46_DIR}/LICENSE.Newtonsoft.Json.txt

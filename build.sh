@@ -63,7 +63,7 @@ DISTFILES=(${REPO}/${XML_RPC_DIST_FILE} \
            ${REPO}/${LOG4NET_DIST_FILE} \
            ${REPO}/${SHARP_ZIP_LIB_DIST_FILE} \
            ${REPO}/${DISCUTILS_DIST_FILE} \
-           ${REPO}/${DOT_NET_ZIP_FILE} 
+           ${REPO}/${DOT_NET_ZIP_FILE} )
 
 mkdir_clean()
 {
